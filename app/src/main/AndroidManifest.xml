@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zzteck.cardect"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="22" />
+
+    <application
+        android:name=".ui.MApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MyTheme" >
+        <activity
+            android:name="com.zzteck.cardect.ui.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.ble.ble.BleService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity android:name="com.zzteck.cardect.ui.KeyInTouchActivity" >
+        </activity>
+        <activity android:name=".ui.BatteryTypeActivity" >
+        </activity>
+        <activity android:name=".ui.CCASetActivity" >
+        </activity>
+        <activity android:name=".ui.BatteryTestActivity" >
+        </activity>
+        <activity android:name=".ui.SecondActivity" >
+        </activity>
+        <activity android:name=".ui.TestMenuActivity" >
+        </activity>
+        <activity android:name="com.zzteck.cardect.ui.NoteDeleteActivity" >
+        </activity>
+        <activity android:name="com.zzteck.cardect.ui.NoteViewActivity" >
+        </activity>
+        <activity android:name="com.zzteck.cardect.ui.EngerActivity" >
+        </activity>
+        <activity android:name="com.zzteck.cardect.ui.ScanActivity" >
+        </activity>
+        <activity android:name="com.zzteck.cardect.ui.ScanPrintActivity" >
+        </activity>
+        <activity android:name="com.zzteck.cardect.ui.ProgressActivity" >
+        </activity>
+        <activity
+            android:name="com.zzteck.cardect.ui.DeleteActivity"
+            android:theme="@style/DialogActivity" >
+        </activity>
+        <activity android:name="com.zzteck.cardect.ui.ResultActivity" >
+        </activity>
+        <activity android:name="com.zzteck.cardect.ui.BatteryInfoDectActivity" >
+        </activity>
+        <activity android:name="com.zzteck.cardect.ui.PrintReportActivity" >
+        </activity>
+        <activity
+            android:name="com.zzteck.cardect.ui.DeviceListActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+
+        <service android:name="com.zzteck.cardect.btprinter.BluetoothPrintService" >
+            <intent-filter>
+                <action android:name="com.bluetooth.service_print" />
+
+                <category android:name="android.intent.category.default" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
